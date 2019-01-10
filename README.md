@@ -1,4 +1,4 @@
-> Guillaume Cornille et Charles Caserus
+> Guillaume Cornille ID Slack : UF5FFN205 et Charles Caserus ID Slack : UF5B7NHTN
 
 - 00_hello.rb >> Demande le prénom de l'utilisateur puis lui dit bonjour.
 
