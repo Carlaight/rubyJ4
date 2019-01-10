@@ -58,4 +58,17 @@ def wtf_pyramid
     end
 end
 
-wtf_pyramid
+def half_pyramid
+
+        puts "Salut, bienvenue dans ma super pyramide ! Combien d'étages veux-tu ? (entre 1 et 25)"
+        print ">"
+        level = gets.chomp.to_i
+        puts "Voici la pyramide"
+        pyramid = lambda{|rows|rows.times do |i| print ' '*((level)-i)+'#'*(i+1);puts '#'*(i) end}   
+        pyramid2 = lambda{|rows|rows.times do |i| print ' '*(i+1);print '#'*((level)-i); puts "#"*(level-i-1) end}   
+    
+            pyramid.(level.to_i) 
+    
+            pyramid2.(level.to_i)
+    
+        end

@@ -1,49 +1,42 @@
-def lancement
-    puts "Bienvenue dans l'escalier de la mort"
-    print " "
-    puts "Vous avez 10 marches à monter, Bonne chance!"
-    print " "
-    puts "Voici les régles: "
-    puts " Lancer le dé :"
-    puts " 5 ou 6, vous montez une marche."
-    puts " 2, 3 ou 4 vous ne bougez pas."
-    puts " 1 vous descendez une marche."
+
+def jeu
+    tour = 0
+    marche = 0
+    while marche < 10
+    result = rand(1..6)
+    puts "tu a le #{result}" 
+        case result
+            when 1
+            marche = marche - 1 
+            puts "tu descend d'une case, tu est donc sur la #{marche} marche "
+            when 2,3,4
+            marche = marche + 0
+            puts " rien ne se passe, tu est sur la #{marche} marche"
+            when 5,6
+            marche = marche + 1
+            puts "tu avance de 1 marche tu est sur la #{marche} marche "
+        end 
+        tour = tour + 1
+    end
+    puts "Bravo ta gagné ! tu as mis #{tour} tours pour y arriver"
+    return tour
 end
 
-# lancer de dé
-def jeter_de
-    valeur = rand(1..6)
-    puts "#{valeur}"
-    return valeur
+def average_finish_time
+    etage = 0
+    array = []
+    100.times do
+        array << jeu  
+    end
+     tour_moyen = array.sum / 100
+     puts  "il te faut en moyenne #{tour_moyen} tours par partie pour arriver a la 10ème marche"
+
+
 end
-
-     
-   #Situation dans l'escalier
-   def escalier(valeur)
-      marche = 0 #position de départ
-      tour = 0
-      while marche < 10
-       case valeur
-       when 5, 6
-       marche = marche + 1
-       puts "Vous montez d'une marche, vous êtes maintenant sur la #{marche} marche.s"
-       when 2, 3, 4
-       marche = marche
-       puts " Vous restez sur la #{marche} marche.s"
-       when 1
-       marche = marche - 1
-       puts " Vous descendez d'une marche, vous êtes mainteant sur la #{marche} marche.s"
-       end
-    end
-      puts "win"
-    end
-
 
 def perform
-    valeur = jeter_de
-    escalier(valeur)
-
+    jeu
+    average_finish_time
 end
 
-lancement
 perform
