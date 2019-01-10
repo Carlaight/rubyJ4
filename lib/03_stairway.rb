@@ -2,7 +2,7 @@ def lancement
     puts "Bienvenue dans l'escalier de la mort"
     print " "
     puts "Vous avez 10 marches à monter, Bonne chance!"
-    print
+    print " "
     puts "Voici les régles: "
     puts " Lancer le dé :"
     puts " 5 ou 6, vous montez une marche."
@@ -11,26 +11,42 @@ def lancement
 end
 
 x = 0 #position de départ
-def jeter_de
-    valeur = rand(1..6) 
-    if  valeur == [5, 6]
-        x = (x + 1)
-       puts "Vous montez d'une marche, vous êtes maintenant sur la #{x} marche.s"
-    
-    elsif valeur == [2, 3, 4]
-        x = x
-        puts " Vous restez sur la #{x} marche.s"
 
-    else valeur == 1
-        x = (x - 1)
-        puts " Vous descendez d'une marche, vous êtes maintenat sur la #{x} marche.s"
-    end
-    return x
+def jeter_de
+    valeur = rand(1..6)
+    puts "#{valeur}"
+    return valeur
 end
+
+def escalier(valeur)
+case valeur
+when valeur == [5, 6]
+when valeur == [2, 3, 4]
+when valeur == [1]
+end
+end
+# def escalier(valeur)
+
+#     if  valeur == [5, 6]
+#         x = (x + 1)
+#        puts "Vous montez d'une marche, vous êtes maintenant sur la #{x} marche.s"
+    
+#     elsif valeur == [2, 3, 4]
+#         x = x
+#         puts " Vous restez sur la #{x} marche.s"
+
+#     else valeur == 1
+#         x = (x - 1)
+#         puts " Vous descendez d'une marche, vous êtes maintenat sur la #{x} marche.s"
+#     end
+#     return x   
+# end
 
 def perform
-    lancement
-    jeter_de
+    valeur = jeter_de
+    
+    escalier(valeur)
 end
 
-jeter_de
+lancement
+perform
