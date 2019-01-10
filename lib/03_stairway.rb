@@ -10,42 +10,39 @@ def lancement
     puts " 1 vous descendez une marche."
 end
 
-x = 0 #position de départ
-
+# lancer de dé
 def jeter_de
     valeur = rand(1..6)
     puts "#{valeur}"
     return valeur
 end
 
-def escalier(valeur)
-case valeur
-when valeur == [5, 6]
-when valeur == [2, 3, 4]
-when valeur == [1]
-end
-end
-# def escalier(valeur)
+     
+   #Situation dans l'escalier
+   def escalier(valeur)
+      marche = 0 #position de départ
+      tour = 0
+      while marche < 10
+       case valeur
+       when 5, 6
+       marche = marche + 1
+       puts "Vous montez d'une marche, vous êtes maintenant sur la #{marche} marche.s"
+       when 2, 3, 4
+       marche = marche
+       puts " Vous restez sur la #{marche} marche.s"
+       when 1
+       marche = marche - 1
+       puts " Vous descendez d'une marche, vous êtes mainteant sur la #{marche} marche.s"
+       end
+    end
+      puts "win"
+    end
 
-#     if  valeur == [5, 6]
-#         x = (x + 1)
-#        puts "Vous montez d'une marche, vous êtes maintenant sur la #{x} marche.s"
-    
-#     elsif valeur == [2, 3, 4]
-#         x = x
-#         puts " Vous restez sur la #{x} marche.s"
-
-#     else valeur == 1
-#         x = (x - 1)
-#         puts " Vous descendez d'une marche, vous êtes maintenat sur la #{x} marche.s"
-#     end
-#     return x   
-# end
 
 def perform
     valeur = jeter_de
-    
     escalier(valeur)
+
 end
 
 lancement
